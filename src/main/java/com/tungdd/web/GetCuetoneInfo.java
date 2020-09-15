@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.tungdd.execute.VLCStreamThread;
+import com.tungdd.util.Constants;
 import com.tungdd.util.FileUtil;
 import com.tungdd.util.Utils;
 
@@ -37,6 +39,9 @@ public class GetCuetoneInfo extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(json);
+        
+        // Run VLC server streaming
+        new VLCStreamThread(Constants.TIME_SLEEP_CUETON_MILIS).start();
 	}
 
 	@Override
@@ -47,5 +52,5 @@ public class GetCuetoneInfo extends HttpServlet {
 		this.doGet(req, resp);
 	}
 	
-
+	
 }

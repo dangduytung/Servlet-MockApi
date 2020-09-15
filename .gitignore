@@ -8,7 +8,7 @@ logs
 .classpath
 .project
 
-/src/main/resources/cuetoneInfo.json
+/src/main/resources/cuetoneInfo*.json
 
 *.jar
 *.war
